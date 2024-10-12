@@ -14,7 +14,7 @@ public class Boid : MonoBehaviour {
     Vector3 velocity;
 
     // To update:
-    Vector3 acceleration;
+    //Vector3 acceleration;
     [HideInInspector]
     public Vector3 avgFlockHeading;
     [HideInInspector]
@@ -30,16 +30,16 @@ public class Boid : MonoBehaviour {
     Transform leaderTarget;
 
     void Awake() {
-        material = transform.GetComponentInChildren<MeshRenderer>().material;
-        cachedTransform = transform;
+        material = transform.GetComponentInChildren<SkinnedMeshRenderer>().material;
+        //cachedTransform = transform;
     }
 
     public void Initialize(BoidSettings settings, Transform target) {
         this.leaderTarget = target;
         this.settings = settings;
 
-        position = cachedTransform.position;
-        forward = cachedTransform.forward;
+        position = /*cachedTransform*/transform.position;
+        forward = /*cachedTransform*/transform.forward;
 
         float startSpeed = (settings.minSpeed + settings.maxSpeed) / 2;
         velocity = transform.forward * startSpeed;
@@ -85,9 +85,9 @@ public class Boid : MonoBehaviour {
         speed = Mathf.Clamp(speed, settings.minSpeed, settings.maxSpeed);
         velocity = dir * speed;
 
-        cachedTransform.position += velocity * Time.deltaTime;
-        cachedTransform.forward = dir;
-        position = cachedTransform.position;
+        /*cachedTransform*/transform.position += velocity * Time.deltaTime;
+        /*cachedTransform*/transform.forward = dir;
+        position = /*cachedTransform*/transform.position;
         forward = dir;
     }
 
@@ -103,7 +103,7 @@ public class Boid : MonoBehaviour {
         Vector3[] rayDirections = BoidHelper.directions;
 
         for (int i = 0; i < rayDirections.Length; i++) {
-            Vector3 dir = cachedTransform.TransformDirection(rayDirections[i]);
+            Vector3 dir = /*cachedTransform*/transform.TransformDirection(rayDirections[i]);
             Ray ray = new Ray(position, dir);
             if (!Physics.SphereCast(ray, settings.boundsRadius, settings.collisionAvoidDst, settings.obstacleMask)) {
                 return dir;
