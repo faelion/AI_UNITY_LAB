@@ -11,8 +11,11 @@ public class Spawner : MonoBehaviour {
     public int spawnCount = 10;
     public Color colour;
     public GizmoType showSpawnRegion;
+    public BoidManager manager;
 
     void Awake() {
+        List<Boid> boids = new List<Boid>();
+
         for (int i = 0; i < spawnCount; i++) {
             Vector3 pos = transform.position + Random.insideUnitSphere * spawnRadius;
             Boid boid = Instantiate(prefab);
@@ -20,7 +23,9 @@ public class Spawner : MonoBehaviour {
             boid.transform.forward = Random.insideUnitSphere;
 
             boid.SetColor(colour);
+            boids.Add(boid);
         }
+        manager.SetBoids(boids.ToArray());
     }
 
     private void OnDrawGizmos() {

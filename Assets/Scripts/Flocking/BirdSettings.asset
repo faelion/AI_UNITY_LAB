@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc1758932bf51d47b9244ea4f221799, type: 3}
   m_Name: BirdSettings
   m_EditorClassIdentifier: 
-  minSpeed: 5
-  maxSpeed: 8
-  perceptionRadius: 2.5
+  minSpeed: 0.92
+  maxSpeed: 3.47
+  perceptionRadius: 2.03
   avoidanceRadius: 1
-  maxSteerForce: 8
+  maxSteerForce: 5
   alignWeight: 2
-  cohesionWeight: 1
+  cohesionWeight: 1.11
   seperateWeight: 2.5
   targetWeight: 2
   obstacleMask:
     serializedVersion: 2
     m_Bits: 4294967295
   boundsRadius: 0.27
-  avoidCollisionWeight: 20
+  avoidCollisionWeight: 10
   collisionAvoidDst: 5

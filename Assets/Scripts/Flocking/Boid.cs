@@ -30,7 +30,11 @@ public class Boid : MonoBehaviour {
     Transform leaderTarget;
 
     void Awake() {
-        material = transform.GetComponentInChildren<SkinnedMeshRenderer>().material;
+        material = transform.GetComponentInChildren<MeshRenderer>()?.material;
+        if(material == null)
+        {
+            material = transform.GetComponentInChildren<SkinnedMeshRenderer>()?.material;
+        }
         //cachedTransform = transform;
     }
 

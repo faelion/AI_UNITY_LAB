@@ -8,12 +8,12 @@ public class BoidManager : MonoBehaviour {
 
     public BoidSettings settings;
     public ComputeShader compute;
+    [SerializeField] private Transform target = null;
     Boid[] boids;
 
     void Start () {
-        boids = FindObjectsOfType<Boid> ();
         foreach (Boid b in boids) {
-            b.Initialize(settings, null);
+            b.Initialize(settings, target);
         }
 
     }
@@ -53,6 +53,11 @@ public class BoidManager : MonoBehaviour {
 
             boidBuffer.Release();
         }
+    }
+
+    public void SetBoids(Boid[] b)
+    {
+        boids = b;
     }
 
     public struct BoidData {
