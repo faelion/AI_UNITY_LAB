@@ -15,15 +15,15 @@ MonoBehaviour:
   minSpeed: 0.92
   maxSpeed: 3.47
   perceptionRadius: 2.03
-  avoidanceRadius: 1
+  avoidanceRadius: 1.45
   maxSteerForce: 5
   alignWeight: 2
   cohesionWeight: 1.11
-  seperateWeight: 2.5
+  seperateWeight: 3.29
   targetWeight: 2
   obstacleMask:
     serializedVersion: 2
     m_Bits: 4294967295
   boundsRadius: 0.27
-  avoidCollisionWeight: 10
+  avoidCollisionWeight: 20
   collisionAvoidDst: 5

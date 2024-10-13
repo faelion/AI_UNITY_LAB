@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour {
     public Color colour;
     public GizmoType showSpawnRegion;
     public BoidManager manager;
+    public GameObject leader;
 
     void Awake() {
         List<Boid> boids = new List<Boid>();
@@ -24,6 +25,11 @@ public class Spawner : MonoBehaviour {
 
             boid.SetColor(colour);
             boids.Add(boid);
+        }
+
+        if (leader != null)
+        {
+            boids.Add(leader.GetComponent<Boid>());
         }
         manager.SetBoids(boids.ToArray());
     }
