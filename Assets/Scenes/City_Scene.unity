@@ -1656,6 +1656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpruceTree1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d74413fbbfe736541b906078f1ee24e0, type: 3}
+      propertyPath: m_TagString
+      value: hide
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3860,6 +3864,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e4876620ed6fa9840ac1d77e00d9d55a, type: 3}
       propertyPath: m_Name
       value: dumpster (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e4876620ed6fa9840ac1d77e00d9d55a, type: 3}
+      propertyPath: m_TagString
+      value: hide
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6128,6 +6136,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 31385f2085d804d419cc322230f9d560, type: 3}
       propertyPath: m_Name
       value: car_taxi
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31385f2085d804d419cc322230f9d560, type: 3}
+      propertyPath: m_TagString
+      value: hide
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8913,6 +8925,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2f4a031dcdb67dd4eb54a9a7eceff90b, type: 3}
       propertyPath: m_Name
       value: car_stationwagon
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f4a031dcdb67dd4eb54a9a7eceff90b, type: 3}
+      propertyPath: m_TagString
+      value: hide
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

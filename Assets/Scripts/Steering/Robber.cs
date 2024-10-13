@@ -14,6 +14,8 @@ public class Robber : MonoBehaviour
     public float randomMovementIntensity = 20.0f;
     public float smoothingFactor = 0.1f;
     public float randomOffsetChangeInterval = 2.0f;
+    public float normalSpeed = 10.0f;
+    public float persueSpeed = 2.0f;
 
     private Vector3 previousTargetPosition;
     private Vector3 estimatedTargetVelocity;
@@ -111,7 +113,7 @@ public class Robber : MonoBehaviour
 
         Vector3 fleePosition = transform.position + (currentMoveDirection.normalized * safeDistance);
 
-        agent.speed = 10f;
+        agent.speed = normalSpeed;
         agent.SetDestination(fleePosition);
     }
 
@@ -119,7 +121,7 @@ public class Robber : MonoBehaviour
     {
         Debug.Log("Robber: Persue");
         Vector3 futurePosition = peasant.position + estimatedTargetVelocity * evadePredictionTime;
-        agent.speed = 2f;
+        agent.speed = persueSpeed;
         agent.SetDestination(futurePosition);
     }
 

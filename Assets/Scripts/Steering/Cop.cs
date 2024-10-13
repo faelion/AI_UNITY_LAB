@@ -49,7 +49,7 @@ public class Cop : MonoBehaviour
         estimatedTargetVelocity = (target.position - previousTargetPosition) / Time.deltaTime;
         previousTargetPosition = target.position;
 
-        if (target != null && Vector3.Distance(target.position, transform.position) < safeDistance)
+        if (target != null && Vector3.Distance(target.position, transform.position) < safeDistance && CanSeeTargetWithAngles())
         {
             Pursue();
         }
@@ -80,7 +80,7 @@ public class Cop : MonoBehaviour
         Vector3 movePosition = transform.position + currentMoveDirection.normalized * agent.speed * Time.deltaTime;
         agent.SetDestination(currentWaypoint.position);
 
-        if (Vector3.Distance(transform.position, currentWaypoint.position) < 1.0f)
+        if (Vector3.Distance(transform.position, currentWaypoint.position) < 0.2f)
         {
             SetNextWaypoint();
         }
@@ -109,5 +109,17 @@ public class Cop : MonoBehaviour
         }
 
         currentWaypoint = waypoints[waypointIndex].transform;
+    }
+
+    bool CanSeeTargetWithAngles()
+    {
+        RaycastHit raycastInfo;
+        Vector3 rayToTarget = target.transform.position - this.transform.position;
+        float lookAngle = Vector3.Angle(this.transform.forward, rayToTarget);
+        if (lookAngle < 90 && Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
+        {
+            if (raycastInfo.transform.gameObject.CompareTag("robber")) return true;
+        }
+        return false;
     }
 }
