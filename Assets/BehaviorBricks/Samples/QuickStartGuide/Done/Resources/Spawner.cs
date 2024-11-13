@@ -4,7 +4,7 @@
 /// Component that is responsible for spawning a GameObjects in a certain position. 
 /// When instancing, it will move randomly in the area until it detects the player and begins to follow him.
 /// </summary>
-public class BoidSpawner : MonoBehaviour {
+public class Spawner : MonoBehaviour {
 
     ///<value>The gameobject that will be spawned</value>
     public GameObject prefab;
