@@ -48,7 +48,7 @@ public class RollerAgent : Agent
         Vector3 controlSignal = Vector3.zero;
         controlSignal.x = actions.ContinuousActions[0];
         controlSignal.z = actions.ContinuousActions[1];
-        rBody.AddForce(controlSignal * forceMultiplier);
+        rBody.AddForce(controlSignal * forceMultiplier * Time.deltaTime);
 
         float distanceToTarget = Vector3.Distance(this.transform.localPosition, target.localPosition);
         // Reached target
