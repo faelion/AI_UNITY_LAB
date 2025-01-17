@@ -5,19 +5,21 @@ using TMPro;
 
 public class Survivor : MonoBehaviour
 {
-    public float safeDistance = 10f;
+    public float safeDistance = 20f;
     public float detectionRadius = 15f;
-    public float wanderRadius = 20f;
-    public float checkInterval = 1f;
+    public float wanderRadius = 10f;
+    public float checkInterval = 0.2f;
     public LayerMask zombieMask;
 
-    public float wanderSpeed = 2f;
-    public float evadeSpeed = 6f;
-    public float transitionDuration = 1f;
+    public float wanderSpeed = 15f;
+    public float evadeSpeed = 15f;
+    public float transitionDuration = 0.5f;
 
     private NavMeshAgent agent;
     private bool isTransitioning = false;
     private NavMeshPath storedPath;
+
+    public float distanceMultiplier = 1f;
 
     private enum AgentState { Idle, Wandering, Evading }
     private AgentState currentState = AgentState.Idle;
@@ -119,7 +121,7 @@ public class Survivor : MonoBehaviour
         {
             if (!isTransitioning)
             {
-                StartCoroutine(SmoothTransition(transform.position + evadeVector));
+                StartCoroutine(SmoothTransition(transform.position + (evadeVector * distanceMultiplier)));
             }
         }
         else
@@ -127,7 +129,7 @@ public class Survivor : MonoBehaviour
             agent.ResetPath();
             if (!isTransitioning)
             {
-                StartCoroutine(SmoothTransition(transform.position + transform.right * 3f - evadeVector * 3f));
+                StartCoroutine(SmoothTransition(transform.position + transform.right * 3f - (evadeVector * distanceMultiplier) * 3f));
             }
         }
     }
